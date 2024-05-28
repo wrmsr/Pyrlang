@@ -11,7 +11,6 @@ import logging
 from colors import color
 
 LOG = logging.getLogger(color("EXAMPLE1", fg='lime'))
-logging.getLogger("").setLevel(logging.DEBUG)
 
 
 class Server(GenServer):
@@ -79,6 +78,9 @@ def init(name):
 
 
 def main():
+    logging.root.addHandler(logging.StreamHandler())
+    logging.root.setLevel(logging.DEBUG)
+
     import sys
     name = sys.argv[1]
     n = init(name)

@@ -32,8 +32,7 @@ async def example_main(node):
 
 
 def main():
-    handler = logging.StreamHandler()
-    logging.root.addHandler(handler)
+    logging.root.addHandler(logging.StreamHandler())
     logging.root.setLevel(logging.DEBUG)
 
     node = Node(node_name="py@127.0.0.1", cookie="COOKIE")

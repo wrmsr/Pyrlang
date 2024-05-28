@@ -21,7 +21,6 @@ from pyrlang.process import Process
 from colors import color
 
 LOG = logging.getLogger(color("EXAMPLE2", fg='lime'))
-logging.getLogger("").setLevel(logging.DEBUG)
 
 
 class MyProcess(Process):
@@ -35,6 +34,9 @@ class MyProcess(Process):
 
 
 def main():
+    logging.root.addHandler(logging.StreamHandler())
+    logging.root.setLevel(logging.DEBUG)
+
     n = Node(node_name="py@127.0.0.1", cookie="COOKIE")
     MyProcess()
     n.run()

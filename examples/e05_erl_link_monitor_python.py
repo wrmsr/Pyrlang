@@ -16,7 +16,6 @@ from pyrlang.process import Process
 from colors import color
 
 LOG = logging.getLogger(color("EXAMPLE5", fg='lime'))
-logging.getLogger("").setLevel(logging.DEBUG)
 
 
 class TestLinkProcess(Process):
@@ -69,6 +68,9 @@ def remote_receiver_name():
 
 
 def main():
+    logging.root.addHandler(logging.StreamHandler())
+    logging.root.setLevel(logging.DEBUG)
+
     node = Node(node_name="py@127.0.0.1", cookie="COOKIE")
     event_loop = node.get_loop()
 
