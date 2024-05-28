@@ -227,7 +227,7 @@ class GenServerInterface(object):
 
         match = Match([(pattern, lambda x: x[1])])
         res = await self._calling_process.receive(match, timeout)
-        self._node.demonitor_process(calling_pid, self._destination_pid, m_ref)
+        await self._node.demonitor_process(calling_pid, self._destination_pid, m_ref)
         return res
 
     async def call(self, request, timeout=5):

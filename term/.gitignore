@@ -1,0 +1,17 @@
+/build
+/venv
+/target
+*.egg-info
+*.pyc
+*.pyo
+
+*.o
+*.a
+*.so
+
+/.idea
+*.iml
+
+# Pyre Typecheck
+/.pyre
+/.pyre_configuration

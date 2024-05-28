@@ -265,7 +265,7 @@ class BaseDistProtocol(asyncio.Protocol):
             (_, sender, target, ref) = control_term
             from pyrlang.errors import ProcessNotFoundError
             try:
-                return n.demonitor_process(origin_pid=sender, target=target,
+                return await n.demonitor_process(origin_pid=sender, target=target,
                                            ref=ref)
             except ProcessNotFoundError:
                 pass

@@ -32,6 +32,10 @@ async def example_main(node):
 
 
 def main():
+    handler = logging.StreamHandler()
+    logging.root.addHandler(handler)
+    logging.root.setLevel(logging.DEBUG)
+
     node = Node(node_name="py@127.0.0.1", cookie="COOKIE")
     ev = node.get_loop()
     ev.create_task(example_main(node))
